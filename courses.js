@@ -1,7 +1,7 @@
 import { addDocument, getDocuments, updateDocument, deleteDocument, COLLECTIONS } from './firebase.js';
 import { toast, openModal, closeModal, setupModals, showTableLoading, showEmptyState,
-         formatMoney, formatDate, startClock, setActiveNav, setupSidebar, filterTable, confirmDelete, resetForm } from './js/utils.js';
-import { injectLayout } from './js/layout.js';
+         formatMoney, formatDate, startClock, setActiveNav, setupSidebar, filterTable, confirmDelete, resetForm } from './utils.js';
+import { injectLayout } from './layout.js';
 
 injectLayout('Courses');
 setActiveNav();
