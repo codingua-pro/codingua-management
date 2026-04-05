@@ -4,6 +4,7 @@
 // =============================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+
 import {
   getFirestore,
   collection,
@@ -17,7 +18,7 @@ import {
   where,
   orderBy,
   Timestamp
-} from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+} from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
 // 🔥 REPLACE THESE WITH YOUR FIREBASE PROJECT CONFIG
 const firebaseConfig = {
