@@ -1,4 +1,4 @@
-import { getDashboardStats, getDocuments, COLLECTIONS } from '../firebase.js';
+import { getDashboardStats, getDocuments, COLLECTIONS } from './firebase.js';
 import { formatMoney, formatDate, startClock, setActiveNav, setupSidebar, toast } from './utils.js';
 import { injectLayout } from './layout.js';
 
