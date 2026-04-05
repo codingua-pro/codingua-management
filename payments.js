@@ -1,4 +1,4 @@
-import { addDocument, getDocuments, updateDocument, deleteDocument, COLLECTIONS } from '../firebase.js';
+import { addDocument, getDocuments, updateDocument, deleteDocument, COLLECTIONS } from './firebase.js';
 import { toast, openModal, closeModal, setupModals, showTableLoading, showEmptyState,
          formatMoney, formatDate, startClock, setActiveNav, setupSidebar, filterTable, confirmDelete, resetForm, populateSelect } from './utils.js';
 import { injectLayout } from './layout.js';
