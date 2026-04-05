@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments — Codingua Manager</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="main" id="app">
+    <div class="content">
+      <div class="page-header">
+        <div class="page-header-info">
+          <h1>Payments</h1>
+          <p>// revenue tracking & billing</p>
+        </div>
+        <button class="btn btn-primary" id="btnAddPayment">＋ Record Payment</button>
+      </div>
+
+      <!-- Summary Cards -->
+      <div class="stats-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:24px">
+        <div class="stat-card green">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value" id="sumPaid" style="font-size:1.3rem">—</div>
+          <div class="stat-label">Total Collected</div>
+        </div>
+        <div class="stat-card amber">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-value" id="sumPending" style="font-size:1.3rem">—</div>
+          <div class="stat-label">Pending Amount</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-icon">📋</div>
+          <div class="stat-value" id="sumCount">—</div>
+          <div class="stat-label">Total Records</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-icon">🔔</div>
+          <div class="stat-value" id="sumPendingCount">—</div>
+          <div class="stat-label">Awaiting Payment</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Payment Records</span>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <select class="form-control" id="statusFilter" style="width:160px;padding:8px 12px;font-size:0.85rem">
+              <option value="">All Statuses</option>
+              <option value="paid">Paid</option>
+              <option value="pending">Pending</option>
+            </select>
+            <div class="search-wrap" style="max-width:220px">
+              <span class="search-icon">🔍</span>
+              <input type="text" class="search-input" id="searchInput" placeholder="Search payments...">
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Group</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Method</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="paymentsTbody">
+              <tr class="loading-row"><td colspan="8"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT PAYMENT MODAL -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">Record Payment</span>
+        <button class="modal-close">✕</button>
+      </div>
+      <form id="paymentForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Student *</label>
+              <select class="form-control" id="fStudent" required>
+                <option value="">Select student...</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Group</label>
+              <select class="form-control" id="fGroup">
+                <option value="">Select group...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Amount (EGP) *</label>
+              <input type="number" class="form-control" id="fAmount" required placeholder="0" min="0">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Payment Date</label>
+              <input type="date" class="form-control" id="fPaymentDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select class="form-control" id="fStatus">
+                <option value="pending">⏳ Pending</option>
+                <option value="paid">✓ Paid</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Payment Method</label>
+              <select class="form-control" id="fMethod">
+                <option value="">Select...</option>
+                <option value="cash">Cash</option>
+                <option value="bank_transfer">Bank Transfer</option>
+                <option value="instapay">InstaPay</option>
+                <option value="vodafone_cash">Vodafone Cash</option>
+                <option value="online">Online</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Notes</label>
+              <textarea class="form-control" id="fNotes" placeholder="Payment notes..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Save Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="payments.js"></script>
+</body>
+</html>

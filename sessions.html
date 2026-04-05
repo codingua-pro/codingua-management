@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sessions — Codingua Manager</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="main" id="app">
+    <div class="content">
+      <div class="page-header">
+        <div class="page-header-info">
+          <h1>Sessions</h1>
+          <p>// class sessions log & scheduling</p>
+        </div>
+        <button class="btn btn-primary" id="btnAddSession">＋ Add Session</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">All Sessions</span>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <select class="form-control" id="groupFilter" style="width:200px;padding:8px 12px;font-size:0.85rem">
+              <option value="">All Groups</option>
+            </select>
+            <div class="search-wrap" style="max-width:220px">
+              <span class="search-icon">🔍</span>
+              <input type="text" class="search-input" id="searchInput" placeholder="Search sessions...">
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Topic</th>
+                <th>Group</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sessionsTbody">
+              <tr class="loading-row"><td colspan="7"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT SESSION MODAL -->
+  <div class="modal-overlay" id="sessionModal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">Add New Session</span>
+        <button class="modal-close">✕</button>
+      </div>
+      <form id="sessionForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Topic *</label>
+              <input type="text" class="form-control" id="fTopic" required placeholder="e.g. Introduction to Variables">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Group *</label>
+              <select class="form-control" id="fGroup" required>
+                <option value="">Select group...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Session Date</label>
+              <input type="date" class="form-control" id="fSessionDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Session Time</label>
+              <input type="time" class="form-control" id="fSessionTime">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select class="form-control" id="fStatus">
+                <option value="scheduled">Scheduled</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Notes</label>
+              <textarea class="form-control" id="fNotes" placeholder="Session notes, homework, topics covered..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Save Session</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="sessions.js"></script>
+</body>
+</html>

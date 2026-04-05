@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groups — Codingua Manager</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="main" id="app">
+    <div class="content">
+      <div class="page-header">
+        <div class="page-header-info">
+          <h1>Groups</h1>
+          <p>// class groups — courses & schedules</p>
+        </div>
+        <button class="btn btn-primary" id="btnAddGroup">＋ Create Group</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">All Groups</span>
+          <div class="search-wrap" style="max-width:260px">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search groups...">
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Group Name</th>
+                <th>Course</th>
+                <th>Start Date</th>
+                <th>Days</th>
+                <th>Time</th>
+                <th>Students</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="groupsTbody">
+              <tr class="loading-row"><td colspan="7"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREATE / EDIT GROUP MODAL -->
+  <div class="modal-overlay" id="groupModal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">Create New Group</span>
+        <button class="modal-close">✕</button>
+      </div>
+      <form id="groupForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Group Name *</label>
+              <input type="text" class="form-control" id="fName" required placeholder="e.g. Python Batch A">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Course *</label>
+              <select class="form-control" id="fCourse" required>
+                <option value="">Select course...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Start Date</label>
+              <input type="date" class="form-control" id="fStartDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Max Students</label>
+              <input type="number" class="form-control" id="fMaxStudents" placeholder="20" min="1">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Days</label>
+              <input type="text" class="form-control" id="fDays" placeholder="e.g. Mon, Wed, Fri">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time</label>
+              <input type="text" class="form-control" id="fTime" placeholder="e.g. 5:00 PM – 7:00 PM">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Save Group</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MANAGE STUDENTS MODAL -->
+  <div class="modal-overlay" id="groupStudentsModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Group Students</div>
+          <div style="font-size:0.78rem;color:var(--accent);font-family:var(--font-mono);margin-top:2px" id="studentsGroupName"></div>
+        </div>
+        <button class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Add student -->
+        <div style="display:flex;gap:10px;margin-bottom:20px;align-items:flex-end">
+          <div class="form-group" style="flex:1;margin:0">
+            <label class="form-label">Add Student to Group</label>
+            <select class="form-control" id="fAddStudent">
+              <option value="">Select student to add...</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnAddToGroup">Add</button>
+        </div>
+        <!-- Student list -->
+        <div id="groupStudentList"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="groups.js"></script>
+</body>
+</html>

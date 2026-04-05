@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Codingua Manager</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <div class="main" id="app">
+    <div class="content">
+      <div class="page-header">
+        <div class="page-header-info">
+          <h1>Welcome back, Admin 👋</h1>
+          <p>// academy overview — real-time stats</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card blue">
+          <div class="stat-icon">📚</div>
+          <div class="stat-value" id="statCourses">—</div>
+          <div class="stat-label">Courses</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value" id="statStudents">—</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-icon">🗂️</div>
+          <div class="stat-value" id="statGroups">—</div>
+          <div class="stat-label">Active Groups</div>
+        </div>
+        <div class="stat-card amber">
+          <div class="stat-icon">📅</div>
+          <div class="stat-value" id="statSessions">—</div>
+          <div class="stat-label">Sessions</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value" id="statRevenue" style="font-size:1.4rem">—</div>
+          <div class="stat-label">Total Revenue</div>
+        </div>
+        <div class="stat-card red">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-value" id="statPending">—</div>
+          <div class="stat-label">Pending Payments</div>
+        </div>
+      </div>
+
+      <!-- Recent activity -->
+      <div class="dash-grid">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Recent Students</span>
+            <a href="students.html" class="btn btn-secondary btn-sm">View All</a>
+          </div>
+          <div class="card-body">
+            <div id="recentStudents">
+              <div class="spinner" style="margin:0 auto"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Recent Payments</span>
+            <a href="payments.html" class="btn btn-secondary btn-sm">View All</a>
+          </div>
+          <div class="card-body">
+            <div id="recentPayments">
+              <div class="spinner" style="margin:0 auto"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div style="margin-top:24px">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Quick Actions</span>
+          </div>
+          <div class="card-body" style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="courses.html" class="btn btn-secondary">📚 Manage Courses</a>
+            <a href="students.html" class="btn btn-secondary">👥 Manage Students</a>
+            <a href="groups.html" class="btn btn-secondary">🗂️ Manage Groups</a>
+            <a href="sessions.html" class="btn btn-secondary">📅 View Sessions</a>
+            <a href="payments.html" class="btn btn-secondary">💳 Track Payments</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

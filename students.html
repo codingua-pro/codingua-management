@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students — Codingua Manager</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="main" id="app">
+    <div class="content">
+      <div class="page-header">
+        <div class="page-header-info">
+          <h1>Students</h1>
+          <p>// enrolled learners directory</p>
+        </div>
+        <button class="btn btn-primary" id="btnAddStudent">＋ Add Student</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">All Students</span>
+          <div class="search-wrap" style="max-width:260px">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search students...">
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Parent Phone</th>
+                <th>Age</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTbody">
+              <tr class="loading-row"><td colspan="7"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT MODAL -->
+  <div class="modal-overlay" id="studentModal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modalTitle">Add New Student</span>
+        <button class="modal-close">✕</button>
+      </div>
+      <form id="studentForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Full Name *</label>
+              <input type="text" class="form-control" id="fName" required placeholder="Student's full name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="fPhone" placeholder="+20 1XX XXX XXXX">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="fEmail" placeholder="student@email.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Parent Phone</label>
+              <input type="tel" class="form-control" id="fParentPhone" placeholder="+20 1XX XXX XXXX">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Age</label>
+              <input type="number" class="form-control" id="fAge" placeholder="Age" min="5" max="80">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Notes</label>
+              <textarea class="form-control" id="fNotes" placeholder="Additional notes about the student..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Save Student</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="students.js"></script>
+</body>
+</html>
