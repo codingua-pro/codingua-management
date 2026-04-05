@@ -3,6 +3,7 @@ import { toast, openModal, closeModal, setupModals, showTableLoading, showEmptyS
          formatDate, startClock, setActiveNav, setupSidebar, filterTable, confirmDelete, resetForm, populateSelect } from './utils.js';
 import { injectLayout } from './layout.js';
 
+
 injectLayout('Groups');
 setActiveNav();
 setupSidebar();
